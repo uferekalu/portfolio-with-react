@@ -1,0 +1,58 @@
+.contact {
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+            background: -webkit-gradient(white);
+            background: linear-gradient(white);
+  }
+  .contact h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+  }
+  
+  .contact__list {
+      margin: auto;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+  
+ 
+  .contact__email{
+      margin-top: 2rem;
+  }
+  .contact__phone{
+      margin-top: 2rem;
+  }
+  .contact__address{
+      margin-top: 2rem;
+  }
+
+  .contact .social-icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  
+  .contact footer {
+    -webkit-transform: rotate(90deg) translate(-3rem, -5rem);
+            transform: rotate(90deg) translate(-3rem, -5rem);
+  }
