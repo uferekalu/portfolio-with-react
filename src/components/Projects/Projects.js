@@ -17,16 +17,16 @@ class Projects extends Component {
                 {
                     project: {
                     img: {
-                        src: '/assets/images/project-1.jpg',
+                        src: '/assets/images/food-web.png',
                         alt: 'My Project',
                     },
                     links: {
                         web: {
-                            url: '#!',
+                            url: 'https://hopeful-lalande-0f6210.netlify.app',
                             title: 'Preview',
                         },
                         repo: {
-                            url: '#!',
+                            url: 'https://github.com/uferekalu/cuisine-with-react-js',
                             title: 'Github',
                         },
         
@@ -36,16 +36,16 @@ class Projects extends Component {
                 {
                     project: {
                     img: {
-                        src: '/assets/images/project-2.jpg',
+                        src: '/assets/images/photo-app.png',
                         alt: 'My Project',
                     },
                     links: {
                         web: {
-                            url: '#!',
+                            url: 'https://kind-montalcini-cc4333.netlify.app',
                             title: 'Preview',
                         },
                         repo: {
-                            url: '#!',
+                            url: 'https://github.com/uferekalu/photo-app-with-react-js',
                             title: 'Github',
                         },
         
@@ -141,7 +141,12 @@ class Projects extends Component {
                         {this.state.details.map((item, index) => {
                             return (
                                     <Col xs={12} sm={6} md={4} className="projects__item" key={index}>
-                                        <img src={`${item.project.img.src}`} className="inline-photo" alt={item.project.img.alt}/>
+                                        <img 
+                                            src={`${item.project.img.src}`} 
+                                            className="img-fluid inline-photo" 
+                                            alt={item.project.img.alt}
+                                            
+                                        />
                                         <Row className="projects__btns">
                                             <Col xs={6} md={6}>
                                                 <a href={item.project.links.web.url} className="projects__btn">
