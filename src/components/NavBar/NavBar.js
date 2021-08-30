@@ -8,8 +8,8 @@ class NavbarComponent extends Component {
     render() {
         return (
                 <Navbar collapseOnSelect expand="lg" className="navBar">
-                    <Navbar.Brand href="#home" className="navBrand">
-                    My Profile
+                    <Navbar.Brand href="/" className="navBrand" style={{ color: "white" }}>
+                        My Profile
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav" className="navBarCollapse">
