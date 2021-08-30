@@ -18,6 +18,7 @@ class NavbarComponent extends Component {
                             <Link className="link" to="/about">About</Link>
                             <Link className="link" to="/projects">Projects</Link>
                             <Link className="link" to="/contact">Contact</Link>
+                            <Link className="link" to="/add">Add Project</Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

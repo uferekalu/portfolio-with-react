@@ -1,171 +1,93 @@
-import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import './Projects.css';
-import Footer from '../Footer/Footer.js';
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./Projects.css";
+import Footer from "../Footer/Footer.js";
 
 class Projects extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-                caption: {
-                    title: 'MY PROJECTS',
-                },
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: [],
+      loading: false
+    };
+  }
 
-            details: [
-                {
-                    project: {
-                    img: {
-                        src: '/assets/images/food-web.png',
-                        alt: 'My Project',
-                    },
-                    links: {
-                        web: {
-                            url: 'https://hopeful-lalande-0f6210.netlify.app',
-                            title: 'Preview',
-                        },
-                        repo: {
-                            url: 'https://github.com/uferekalu/cuisine-with-react-js',
-                            title: 'Github',
-                        },
-        
-                    },
-                    },
-                },
-                {
-                    project: {
-                    img: {
-                        src: '/assets/images/photo-app.png',
-                        alt: 'My Project',
-                    },
-                    links: {
-                        web: {
-                            url: 'https://kind-montalcini-cc4333.netlify.app',
-                            title: 'Preview',
-                        },
-                        repo: {
-                            url: 'https://github.com/uferekalu/photo-app-with-react-js',
-                            title: 'Github',
-                        },
-        
-                    },
-                    },
-                },
-                {
-                    project: {
-                    img: {
-                        src: '/assets/images/project-3.jpg',
-                        alt: 'My Project',
-                    },
-                    links: {
-                        web: {
-                            url: '#!',
-                            title: 'Preview',
-                        },
-                        repo: {
-                            url: '#!',
-                            title: 'Github',
-                        },
-        
-                    },
-                    },
-                },
-                {
-                    project: {
-                    img: {
-                        src: '/assets/images/project-4.jpg',
-                        alt: 'My Project',
-                    },
-                    links: {
-                        web: {
-                            url: '#!',
-                            title: 'Preview',
-                        },
-                        repo: {
-                            url: '#!',
-                            title: 'Github',
-                        },
-        
-                    },
-                    },
-                },
-                { 
-                    project: {
-                    img: {
-                        src: '/assets/images/project-5.jpg',
-                        alt: 'My Project',
-                    },
-                    links: {
-                        web: {
-                            url: '#!',
-                            title: 'Preview',
-                        },
-                        repo: {
-                            url: '#!',
-                            title: 'Github',
-                        },
-        
-                    },
-                    },
-                },
-                {
-                    project: {
-                        img: {
-                            src: '/assets/images/project-6.jpg',
-                            alt: 'My Project',
-                        },
-                        links: {
-                            web: {
-                                url: '#!',
-                                title: 'Preview',
-                            },
-                            repo: {
-                                url: '#!',
-                                title: 'Github',
-                            },
-            
-                        }
-                    },
-                }
-           ]
-        }
-    }
-    
-    render() {
-        return (
-            <section className="projects">
-                <Container className="overflow-hidden">
-                    <h1 className="text-secondary">{this.state.caption.title}</h1>
-                    <Row>
-                        {this.state.details.map((item, index) => {
-                            return (
-                                    <Col xs={12} sm={6} md={4} className="projects__item" key={index}>
-                                        <img 
-                                            src={`${item.project.img.src}`} 
-                                            className="img-fluid inline-photo" 
-                                            alt={item.project.img.alt}
-                                            
-                                        />
-                                        <Row className="projects__btns">
-                                            <Col xs={6} md={6}>
-                                                <a href={item.project.links.web.url} className="projects__btn">
-                                                    <i className="fas fa-eye"></i>{item.project.links.web.title} 
-                                                </a>
-                                            </Col>
-                                            <Col xs={6} md={6}>
-                                                <a href={item.project.links.repo.url} className="projects__btn">
-                                                    <i className="fab fa-github"></i> {item.project.links.repo.title}
-                                                </a>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                            )
-                        })}
-                    </Row>
-                    <Footer />
-            </Container>
-                {/* <Container>
+  componentDidMount() {
+    axios
+      .get("https://ufere-project-api.herokuapp.com/api/projects")
+      .then((data) => {
+        this.setState({
+          projects: data.data,
+          loading: false
+        });
+        console.log("The projects", data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    const { projects } = this.state;
+    return (
+      <section className="projects">
+        <Container className="overflow-hidden">
+          <Link to="/add" className="back-to-home mb-3">
+            Add Project
+          </Link>
+          <h1 className="text-secondary mb-5">PROJECTS</h1>
+          <Row>
+            {projects.map((project, index) => {
+              return (
+                <Col
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  className="projects__item"
+                  key={index}
+                >
+                  {" "}
+                  {project.img ===
+                  "40ae1e7e-6173-46ce-b530-5e9586941e51-1630042644259.gif" ? (
+                    <img
+                      src="/assets/images/shopping.gif"
+                      className="img-fluid inline-photo"
+                      alt={project.name}
+                    />
+                  ) : (
+                    <img
+                      src="/assets/images/interview.png"
+                      className="img-fluid inline-photo"
+                      alt={project.name}
+                    />
+                  )}
+                  <Row className="project-description">
+                    <p>{project.description}</p>
+                  </Row>
+                  <Row className="projects__btns">
+                    <Col xs={6} md={6}>
+                      <a href={project.weburl} className="projects__btn">
+                        <i className="fas fa-eye"></i>
+                        {project.webtitle}
+                      </a>
+                    </Col>
+                    <Col xs={6} md={6}>
+                      <a href={project.repourl} className="projects__btn">
+                        <i className="fab fa-github"></i> {project.repotitle}
+                      </a>
+                    </Col>
+                  </Row>
+                </Col>
+              );
+            })}
+          </Row>
+          <Footer />
+        </Container>
+        {/* <Container>
                     <div className="projects__bio-image">
                         <h1 className="text-secondary">{this.state.caption.title}</h1>
                     </div>
@@ -188,10 +110,8 @@ class Projects extends Component {
                     </div>
                     <Footer />
                 </Container> */}
-            </section>
-                
-        );
-    }
-                
+      </section>
+    );
+  }
 }
 export default Projects;

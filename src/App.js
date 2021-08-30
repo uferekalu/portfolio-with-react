@@ -6,6 +6,7 @@ import NavbarComponent from './components/NavBar/NavBar';
 import HomePage from './components/HomePage/HomePage';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
+import AddProject from './components/Projects/Add-project';
 import Contact from './components/Contact/Contact';
 
 class App extends Component {
@@ -42,6 +43,11 @@ class App extends Component {
           path="/contact"
           exact
           render={() => <Contact/>}
+          />
+          <Route
+          path="/add"
+          exact
+          render={() => <AddProject/>}
           />
 
         </Router>

@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+.project-title {
+  text-align: center;
+  font-size: 25px;
+}
+.project-description{
+  text-align: center;
+  padding: 5px;
+}
