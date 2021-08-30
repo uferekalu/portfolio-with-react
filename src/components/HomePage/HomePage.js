@@ -25,7 +25,7 @@ class HomePage extends Component {
                     <Row>
                         <Col xs={12} md={12} class>
                             <h2>
-                                Web Developer, Designer and Programmer. Proficient in Solidworks and AutoCAD
+                                Full Stack Developer...
                             </h2>
                         </Col>
                     </Row>
